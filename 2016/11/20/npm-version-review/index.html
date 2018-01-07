@@ -1,0 +1,667 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="tech,npm,Node.js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Semantic Version 版本格式：major.minor.fix 其中:  major: 不向下兼容API修改 minor: 向下兼容的功能性新增 fix: 向下兼容的问题修正  当major为0时，可以认为版本不稳定。即使minor的修改，也会引入兼容性问题，这一设计主要是为了开发者可以尽快的进行迭代。但是fix版本依然应该保持向下兼容。 关于Semantic Version的更多信息">
+<meta name="keywords" content="tech,npm,Node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NPM Version 管理总结">
+<meta property="og:url" content="http://zhangzhenyi.com/2016/11/20/npm-version-review/index.html">
+<meta property="og:site_name" content="Zhenyi&#39;s Blog">
+<meta property="og:description" content="Semantic Version 版本格式：major.minor.fix 其中:  major: 不向下兼容API修改 minor: 向下兼容的功能性新增 fix: 向下兼容的问题修正  当major为0时，可以认为版本不稳定。即使minor的修改，也会引入兼容性问题，这一设计主要是为了开发者可以尽快的进行迭代。但是fix版本依然应该保持向下兼容。 关于Semantic Version的更多信息">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-11-28T19:18:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NPM Version 管理总结">
+<meta name="twitter:description" content="Semantic Version 版本格式：major.minor.fix 其中:  major: 不向下兼容API修改 minor: 向下兼容的功能性新增 fix: 向下兼容的问题修正  当major为0时，可以认为版本不稳定。即使minor的修改，也会引入兼容性问题，这一设计主要是为了开发者可以尽快的进行迭代。但是fix版本依然应该保持向下兼容。 关于Semantic Version的更多信息">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://zhangzhenyi.com/2016/11/20/npm-version-review/"/>
+
+  <title> NPM Version 管理总结 | Zhenyi's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-35182423-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Zhenyi's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NPM Version 管理总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T12:26:52+01:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/npm-version-review/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/20/npm-version-review/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Semantic-Version-版本格式："><a href="#Semantic-Version-版本格式：" class="headerlink" title="Semantic Version 版本格式："></a>Semantic Version 版本格式：</h2><pre><code>major.minor.fix
+</code></pre><p>其中:</p>
+<ul>
+<li>major: 不向下兼容API修改</li>
+<li>minor: 向下兼容的功能性新增</li>
+<li>fix: 向下兼容的问题修正</li>
+</ul>
+<p>当major为0时，可以认为版本不稳定。即使minor的修改，也会引入兼容性问题，这一设计主要是为了开发者可以尽快的进行迭代。但是fix版本依然应该保持向下兼容。</p>
+<p>关于Semantic Version的更多信息，参见： <a href="http://semver.org/" target="_blank" rel="noopener">http://semver.org/</a></p>
+<h2 id="npm-的version管理"><a href="#npm-的version管理" class="headerlink" title="npm 的version管理"></a>npm 的version管理</h2><h3 id="Primitive-Comparators："><a href="#Primitive-Comparators：" class="headerlink" title="Primitive Comparators："></a>Primitive Comparators：</h3><ul>
+<li>&lt;</li>
+<li>&lt;=</li>
+<li>></li>
+<li>>=</li>
+<li>=</li>
+</ul>
+<p>这些很好理解，就不做过多解释了。另外，可以用<code>||</code>表示”或”的关系<code>空格</code>表示”且”的关系，例如：</p>
+<pre><code>1.2.7 || &gt;=1.2.9 &lt;2.0.0
+</code></pre><p>满足的区间为 1.2.7, 1.2.9, and 1.4.6, 但是 1.2.8 or 2.0.0 不满足以上区间</p>
+<h3 id="高级区间运算符"><a href="#高级区间运算符" class="headerlink" title="高级区间运算符"></a>高级区间运算符</h3><h4 id="hyphen-X-Y-Z-A-B-C"><a href="#hyphen-X-Y-Z-A-B-C" class="headerlink" title="hyphen(-): X.Y.Z - A.B.C"></a>hyphen(-): X.Y.Z - A.B.C</h4><p>表示一个区间，包括两头，不足的version用0补足</p>
+<h4 id="X-Range-X-x-1-2-x-1-X-1-2"><a href="#X-Range-X-x-1-2-x-1-X-1-2" class="headerlink" title="X Range(X,x,*): 1.2.x 1.X 1.2. "></a>X Range(X,x,*): 1.2.x 1.X 1.2.<em> </em></h4><p>代表任意版本</p>
+<h4 id="Tilde-Range-1-2-3-1-2-1"><a href="#Tilde-Range-1-2-3-1-2-1" class="headerlink" title="Tilde Range(~): ~1.2.3 ~1.2 ~1"></a>Tilde Range(~): ~1.2.3 ~1.2 ~1</h4><p>  如果有minor version，那么久允许fix level的version。否则，只允许minor level的version。<br>    例如：</p>
+<pre><code>~1.2.3 := &gt;=1.2.3 &lt;1.(2+1).0 := &gt;=1.2.3 &lt;1.3.0
+~1.2 := &gt;=1.2.0 &lt;1.(2+1).0 := &gt;=1.2.0 &lt;1.3.0 (Same as 1.2.x)
+~1 := &gt;=1.0.0 &lt;(1+1).0.0 := &gt;=1.0.0 &lt;2.0.0 (Same as 1.x)
+</code></pre><h4 id="Caret-Ranges-1-2-3-0-2-5-0-0-4"><a href="#Caret-Ranges-1-2-3-0-2-5-0-0-4" class="headerlink" title="Caret Ranges(^): ^1.2.3 ^0.2.5 ^0.0.4"></a>Caret Ranges(^): ^1.2.3 ^0.2.5 ^0.0.4</h4><p>允许[major, minor, patch]从左起第一个不是0的部分之后的部分的范围变动。虽然在semver的spec里，只有major版本的改变会产生兼容性问题。但是在实际上，当主版本号为0时，minor版本经常会引入行为上的变化。例如：</p>
+<pre><code>^1.2.3 := &gt;=1.2.3 &lt;2.0.0
+^0.2.3 := &gt;=0.2.3 &lt;0.3.0
+^0.0.3 := &gt;=0.0.3 &lt;0.0.4
+^1.2.3-beta.2   &gt;=1.2.3-beta.2 &lt;2.0.0
+^0.0.3-beta.2   &gt;=0.0.3-beta.2 &lt;0.0.4
+</code></pre><p>一句话概括tilde和caret的区别：</p>
+<ul>
+<li><p>tilde match most recent minor version (the middle number):</p>
+<p>~1.2.3 := &gt;=1.2.3-0 &lt;1.3.0-0 (“Reasonably close to 1.2.3”)</p>
+</li>
+<li><p>caret updates to the most recent major version:</p>
+<p>^1.2.3 := &gt;=1.2.3-0 &lt;2.0.0-0 (“Compatible with 1.2.3”)</p>
+</li>
+</ul>
+<p>caret其实是认为只要major版本不改变，那么兼容性就可以保证。然而tilde更保守一点，只接受minor或者fix的更新。另外，对于正在开发中的初始版本，tilde和caret的功能是一样的。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://semver.org/lang/zh-CN/" target="_blank" rel="noopener">http://semver.org/lang/zh-CN/</a></li>
+<li><a href="https://docs.npmjs.com/misc/semver" target="_blank" rel="noopener">https://docs.npmjs.com/misc/semver</a></li>
+<li><a href="http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json" target="_blank" rel="noopener">http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json</a></li>
+<li><a href="http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/" target="_blank" rel="noopener">http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/</a></li>
+<li><a href="http://bytearcher.com/articles/semver-explained-why-theres-a-caret-in-my-package-json/" target="_blank" rel="noopener">http://bytearcher.com/articles/semver-explained-why-theres-a-caret-in-my-package-json/</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tech/" rel="tag">#tech</a>
+          
+            <a href="/tags/npm/" rel="tag">#npm</a>
+          
+            <a href="/tags/Node-js/" rel="tag">#Node.js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/15/git-ignore-files/" rel="next" title="Git 忽略文件总结">
+                <i class="fa fa-chevron-left"></i> Git 忽略文件总结
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/02/2016-personal-review/" rel="prev" title="2016个人总结">
+                2016个人总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/gravatar.png"
+               alt="Zhenyi ZHANG" />
+          <p class="site-author-name" itemprop="name">Zhenyi ZHANG</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Semantic-Version-版本格式："><span class="nav-number">1.</span> <span class="nav-text">Semantic Version 版本格式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm-的version管理"><span class="nav-number">2.</span> <span class="nav-text">npm 的version管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Primitive-Comparators："><span class="nav-number">2.1.</span> <span class="nav-text">Primitive Comparators：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级区间运算符"><span class="nav-number">2.2.</span> <span class="nav-text">高级区间运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hyphen-X-Y-Z-A-B-C"><span class="nav-number">2.2.1.</span> <span class="nav-text">hyphen(-): X.Y.Z - A.B.C</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X-Range-X-x-1-2-x-1-X-1-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">X Range(X,x,*): 1.2.x 1.X 1.2. </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tilde-Range-1-2-3-1-2-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">Tilde Range(~): ~1.2.3 ~1.2 ~1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Caret-Ranges-1-2-3-0-2-5-0-0-4"><span class="nav-number">2.2.4.</span> <span class="nav-text">Caret Ranges(^): ^1.2.3 ^0.2.5 ^0.0.4</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhenyi ZHANG</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'zhenyisblog';
+      var disqus_identifier = '2016/11/20/npm-version-review/';
+      var disqus_title = "NPM Version 管理总结";
+      var disqus_url = 'http://zhangzhenyi.com/2016/11/20/npm-version-review/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
