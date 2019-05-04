@@ -1,20 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
 
 
 
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -27,48 +32,6 @@
 
 
 
-  
-  
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -77,59 +40,102 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zhenyi&#39;s Blog">
-<meta property="og:url" content="http://zhangzhenyi.com/index.html">
-<meta property="og:site_name" content="Zhenyi&#39;s Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhenyi&#39;s Blog">
 
-
-
-<script type="text/javascript" id="hexo.configuration">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
-
-
-  <link rel="canonical" href="http://zhangzhenyi.com/">
-
-  <title> Zhenyi's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-35182423-1', 'auto');
-  ga('send', 'pageview');
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Zhenyi&#39;s Blog">
+<meta property="og:url" content="http://zhangzhenyi.com/index.html">
+<meta property="og:site_name" content="Zhenyi&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zhenyi&#39;s Blog">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://zhangzhenyi.com/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
 </script>
 
+  <title>Zhenyi's Blog</title>
+  
+
+
+
+
+  <script async src="//www.googletagmanager.com/gtag/js?id=UA-35182423-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-35182423-1');
+    }
+  </script>
 
 
 
@@ -137,99 +143,179 @@
 
 
 
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Zhenyi's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zhenyi's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">代码手艺人，在路上</p>
+      
+    
+    
   </div>
-  <p class="site-subtitle"></p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home menu-item-active">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
       
     </ul>
   
 
   
+
+  
 </nav>
 
- </div>
+
+
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -237,13 +323,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangzhenyi.com/2017/05/15/technical-interview-preparation-in-france/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhenyi ZHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/gravatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyi's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -251,13 +353,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/05/15/technical-interview-preparation-in-france/" itemprop="url">
-                  如何准备法国IT技术面试
-                </a>
+                
+                <a href="/2017/05/15/technical-interview-preparation-in-france/" class="post-title-link" itemprop="url">如何准备法国IT技术面试</a>
               
             
           </h1>
@@ -265,39 +363,81 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-15T22:25:26+02:00" content="2017-05-15">
-              2017-05-15
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-15 22:25:26" itemprop="dateCreated datePublished" datetime="2017-05-15T22:25:26+02:00">2017-05-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-04 13:32:54" itemprop="dateModified" datetime="2019-05-04T13:32:54+02:00">2019-05-04</time>
+              
+            
           </span>
 
           
 
           
             
+            
+              
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/2017/05/15/technical-interview-preparation-in-france/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/15/technical-interview-preparation-in-france/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/15/technical-interview-preparation-in-france/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -306,27 +446,80 @@
       
         
           
-          今年从1月份开始，到5月初最终找到满意的工作，经历了三个多月的面试准备。在此总结一下我的面试准备方法。如果能把我说的这些复习好，在法国，甚至在欧洲的IT公司基本上就可以收割offer了。我面试的是软件工程师，具体来说是全栈工程师。当然，如果你想要面试的是Google, Facebook, Amazo
-          ...
+            <p><img src="/images/tech_interview.jpeg" alt></p>
+<p>今年从1月份开始，到5月初最终找到满意的工作，经历了三个多月的面试准备。在此总结一下我的面试准备方法。如果能把我说的这些复习好，在法国，甚至在欧洲的IT公司基本上就可以收割offer了。我面试的是软件工程师，具体来说是全栈工程师。当然，如果你想要面试的是Google, Facebook, Amazon或同级别的公司，还要在这个基础上付出更多的努力。</p>
+<h2 id="面试的类型和流程"><a href="#面试的类型和流程" class="headerlink" title="面试的类型和流程"></a>面试的类型和流程</h2><p>先说说面试的流程吧。软件工程师的职位，不外乎电话面试，Online Test，Skype面试，onsite技术面试，和直接主管面试，client面试等等。</p>
+<p>电话面试：当HR被你的简历吸引之后，一般会先打电话过来进行初步交流。主要的目的是了解你现在的情况，是否还在继续找工作。想要找什么样的工作等等。同时，HR会对你的能力进行基本考察。比如让你介绍一下当前工作内容，项目的情况等等。对于毕业生，会要求介绍做过的实习情况等等。有些人对电话面试比较害怕，认为自己的法语不好，可能说不清楚。其实在电话面试之前都是要认真准备的。要可以熟练地介绍自己的项目以及自己想找的职位。在投简历之前就应该准备好。要知道HR的效率是很高的。</p>
+<p>Online Test：有的公司会在电话面试之后甩给你一个链接，让你做一套题。根据结果再决定是否继续。比较流行的有coding game，hackerrank等。我们公司招聘的时候用的是coding game，所以稍微了解一点后台的情况。Coding game是有题库的。很多公司为了减少成本，就会直接使用平台提供的题库。主要就是语言知识，程序设计，解决问题能力等方面的考察。每道题会有分数，所有题目答完会有一个综合分数。另外，很多公司没有在线测试，而是让求职者在onsite面试时做一套纸质的题目，这个在SSII很常见。</p>
+<p>Skype面试：有的公司为了节省面试成本（尤其是美国公司），会安排Skype面试。内容和onsite面试就很像了，只是不是面对面而已。</p>
+<p>Onsite面试：所有到公司local的面试都叫onsite。有的公司可能电话面试之后直接onsite，有的可能经过了好几轮才会让面试者onsite。这一步也是最认真的面试。一般会有项目介绍，还有技术题目的考察。求职者也可以通过onsite面试更加了解公司的情况。</p>
+<p>主管面试：在通过技术面试之后，可能还会和将要进入的组的直接主管面谈。主要是看性格上能不能融入组里，面试者是不是有足够的motivation等。</p>
+<p>Client面试：这个主要是对于SSII来说。在通过SSII的面试之后，还要去客户的公司面试。毕竟最后还是要到客户公司去工作的。流程主要就是一轮到两轮的onsite面试，有时还会有coding game的习题。</p>
+<h2 id="面试的准备"><a href="#面试的准备" class="headerlink" title="面试的准备"></a>面试的准备</h2><p>流程就谈到这，接下来按步骤说一说面试的准备吧。我用的语言是Java，所以以下的复习资料都是Java的，其他语言的只能大家自己去找资料了。不过大部分准备都是相通的。</p>
+<h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><p>关于自我介绍，重点是清晰，有重点和全局观。要清楚的描述自己当前的项目情况，也要想清楚，并描述清楚自己想面试的职位是什么。建议按照以下格式来准备项目介绍：</p>
+<ul>
+<li>业务：公司业务是什么 项目的任务是什么</li>
+<li>流程：项目以及业务的大体流程是什么，可以是数据流，也可以是工作流程。比如上下游都是什么</li>
+<li>技术：工作中用到的主要技术是什么，说出重点，而且要和面试的职位有关联性</li>
+<li>团队：团队的构成是什么，有几个人，开发流程是什么</li>
+<li>任务：我在团队中的角色是什么，我完成了什么任务，获得了什么结果</li>
+</ul>
+<h3 id="Coding-Game或者QA面试题"><a href="#Coding-Game或者QA面试题" class="headerlink" title="Coding Game或者QA面试题"></a>Coding Game或者QA面试题</h3><p>第一轮的面试题其实不是很难，都是基础知识的考察。对于Java来说，很多都是OCJCP的题目。如果考过OCJCP的同学，应该不觉得太难。如果想快速准备的话，<a href="http://www.journaldev.com/2366/core-java-interview-questions-and-answers" target="_blank" rel="noopener">这里有一套JournalDev总结的面试题</a>，总结的非常好。建议花一些时间过一遍，足以应付大部分QA的问题了。</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>在法国，大部分IT公司是不会考算法的。最多只是考一些简单的编程问题，最难的不过写一个排序了。但是，如果你想面试的是美国或者英国公司，那么算法是一定要准备的。不用怕，在三个月之前，我也连Merge Sort和Quick Sort也写不出来，连Heap和Tries的结构也说不清楚的。</p>
+<p>对于算法来说，我觉得最重要的是打好基础。我觉得三个月的准备时间足够了。如果不够，半年怎么也足够了。那么如何准备呢？推荐三个资料</p>
+<ol>
+<li><p><a href="https://github.com/haseebr/competitive-programming/blob/master/Materials/Algorithhms%204th%20Edition%20by%20Robert%20Sedgewick%2C%20Kevin%20Wayne.pdf" target="_blank" rel="noopener">Algorithms</a></p>
+<p>这本书从最简单的数据结构Bag，Queue和排序算法讲起，涉及了树，图论，String，Hashtable等常见的算法和数据结构。内容十分详实，而且讲解浅显易懂，远胜于算法导论。这本书直接改变了我对算法的理解，也在面试中帮了我的大忙。只有熟练掌握书里提供的基础算法，才能在实际问题中灵活变通。</p>
+</li>
+<li><p><a href="https://inspirit.net.in/books/placements/Cracking%20the%20Coding%20Interview.pdf" target="_blank" rel="noopener">Cracking the code interview</a></p>
+<p>这本书也是面试必读的书籍之一了。除了面试题，书里也对面试的流程和面试的准备进行了详细地介绍，建议通读全书。里面的算法题建议自己先思考，再看答案。如果没时间的话，也至少把答案都过一遍，记下解题的思路。</p>
+</li>
+<li><p><a href="https://leetcode.com/" target="_blank" rel="noopener">LeetCode刷题</a></p>
+<p>刷的题不在多，而在于有针对性。如果前两步都做完了，这个时候LeetCode的easy题目基本上就没有任何难度了，也会对自己的能力有了一定的了解。在真实面试中，也很少会出现hard难度的题目。大部分都是easy或者medium级别的。我觉得刷30道题左右就够了。主要是锻炼解题的思路和习惯，强化自己不太熟悉的知识点。刷题过后，也要认真看别人的solution，能学到不少思路和小技巧。选题也是一个窍门，那种解法比较单一，需要动脑筋或者特殊知识点的题目，大公司是不会考的。大公司比较爱考的是基础算法的变体，或者是有很多解法的问题。所以，第一步的基础要打好。</p>
+</li>
+</ol>
+<h3 id="系统设计题目"><a href="#系统设计题目" class="headerlink" title="系统设计题目"></a>系统设计题目</h3><p>系统设计题目主要是看平时的积累。对于junior来说，一般不会涉及到。这一部分也是我经验欠缺的地方。我的准备主要有如下几步：</p>
+<ol>
+<li>熟悉常见系统的组成部分。比如Proxy，Load Balancer，缓存。对于分布式系统要熟悉CAP theroy，对于数据库要熟悉partition和sharding等概念。推荐文章： <a href="http://www.aosabook.org/en/distsys.html" target="_blank" rel="noopener">http://www.aosabook.org/en/distsys.html</a></li>
+<li>了解常见的系统的架构。这个主要考平时的积累和观察了。我平时会订阅infoq或者国内开发者头条等文章的推送，经常有国内公司大型系统架构方面的文章分享。</li>
+<li>针对性地准备系统设计题目。其实面试时的系统设计题目也是有一定的解题套路的。推荐<a href="https://www.educative.io/collection/5668639101419520/5649050225344512" target="_blank" rel="noopener">Grokking the System Design Interview系列教程</a>。免费的内容有一些基本的讲解和两道真题的详细解答，我觉得足够了。</li>
+</ol>
+<h3 id="Behavioral-Question"><a href="#Behavioral-Question" class="headerlink" title="Behavioral Question"></a>Behavioral Question</h3><p>重要的事情说三遍：</p>
+<p>BQ一定要认真准备！<br>BQ一定要认真准备！<br>BQ一定要认真准备！</p>
+<p>要把BQ的重要性提高到和技术问题一样。我自己就是Amazon的BQ挂掉了。。。关于如何准备，在Cracking这本书里有讲解。另外，我自己找到一个网站，里面列出了常见的BQ问题，建议对每一个问题都找到一个具体的例子来回答。当你积累了三十多个例子的时候，对任何问题就都能够对答如流了：<a href="https://www.mockquestions.com/interview/Behavioral/topquestions/" target="_blank" rel="noopener">https://www.mockquestions.com/interview/Behavioral/topquestions/</a><br>关于BQ的回答，我的经验是一定要说具体事例，不要泛泛而谈。</p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>前端的技术是在太广了。这一部分很大程度上也是凭借平时的积累。以前端的发展速度，半年不学习就跟不上了。<br>我觉得前端的知识主要涉及到如下几部分：</p>
+<ul>
+<li>语言： JS，ES2015，TypeScript</li>
+<li>web：HTML5，CSS，SASS</li>
+<li>框架： AngularJS，ReactJS （这边Vue用的很少）</li>
+<li>工程化：npm，gulp，webpack，karma等</li>
+</ul>
+<p>至少要熟悉以上技术的基本概念和用法。另外，由于前端现在技术发展十分迅猛，有丰富前端经验的程序员在市场上屈指可数，面试官对前端技术可能了解的也不是很全面。所以，面试时考察的可能不是某个知识点，而是学习的方法和能力，看面试者是否有motivation来不断进步，跟上前端的变化。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>说实话，我觉得我对面试的准备是相当Pragmatique的，是对面试进行的针对性训练。但是经历了这一系列准备之后，我感觉的自己编程能力确实有了提高，思维更加活跃了。认真准备，付出的努力总是会有回报的。既然选择了程序员这一行，就要活到老学到老不是吗？</p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/15/technical-interview-preparation-in-france/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -336,6 +529,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -343,13 +540,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangzhenyi.com/2017/05/14/mentalite-entretien-en-france/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhenyi ZHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/gravatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyi's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -357,13 +570,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/05/14/mentalite-entretien-en-france/" itemprop="url">
-                  谈谈在法国的面试心态
-                </a>
+                
+                <a href="/2017/05/14/mentalite-entretien-en-france/" class="post-title-link" itemprop="url">谈谈在法国的面试心态</a>
               
             
           </h1>
@@ -371,39 +580,81 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-14T22:58:37+02:00" content="2017-05-14">
-              2017-05-14
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-14 22:58:37" itemprop="dateCreated datePublished" datetime="2017-05-14T22:58:37+02:00">2017-05-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-07 13:08:46" itemprop="dateModified" datetime="2018-01-07T13:08:46+01:00">2018-01-07</time>
+              
+            
           </span>
 
           
 
           
             
+            
+              
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/2017/05/14/mentalite-entretien-en-france/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/14/mentalite-entretien-en-france/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/14/mentalite-entretien-en-france/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -412,28 +663,38 @@
       
         
           
-          今年前半年参加了不少面试。有作为面试官参与为客户招聘consultant，也有作为面试者经历数轮技术面试。在此分享一下自己的体会吧。
-第一次当面试官去面试别人时，还是相当紧张的。虽然在面试前已经看过的面试者的简历，也准备了一些技术问题。但是一上战场，就发现还是会懵逼。一方面可能是自己还是抱着juni
-          ...
+            <p>今年前半年参加了不少面试。有作为面试官参与为客户招聘consultant，也有作为面试者经历数轮技术面试。在此分享一下自己的体会吧。</p>
+<p>第一次当面试官去面试别人时，还是相当紧张的。虽然在面试前已经看过的面试者的简历，也准备了一些技术问题。但是一上战场，就发现还是会懵逼。一方面可能是自己还是抱着junior的心态，对自己的能力没有自信。另一方面，也是把面试看的太重了。面试说白了其实就是公司和面试者交流的过程，在筛选简历的过程中，面试者肯定有一些方面吸引到了公司，所以才会安排面试来验证我们的想法。如果能力和简历展现的内容相符且交流顺利，那结果其实不难预料。这一点尤其对招聘consultant试用。由于consultant对用人单位来说不用负责任何charges，所以招聘决定相对容易做出。只要不是特别不靠谱，那么都会有positive的答复。</p>
+<p>经历了几次面试别人以后，我对面试的体会相对学生时代有很多改变。</p>
+<p>首先，从客户的角度来看，招聘consultant的重点是什么？不是找到一个牛逼的人，而是找到一个合适的人。一个项目里，可能已经有很多architect的profile，就不需要再找一个可以充当architect角色的人。公司当然希望员工都能独当一面，但是处于成本的考虑，还是更希望找到一个能干活认真，虽然不是那么牛逼，但是能完成自己任务的员工。所以，合不合适其实才是客户最看重的。你可能各方面能力很强，但是可能你不符合用人单位的需求。所以，如果面试的结果是否定的，没必要妄自菲薄或者自暴自弃，告诉自己，只是不合适而已。</p>
+<p>其次，在技术之外，性格也是很重要的因素。我们曾经面试过一个人，技术很强，所有的问题都能对答如流。但是，他在回答关于项目和motivation的问题的时候，一直拐弯抹角地回答，从来不能回答到点子上。最后的结果也是悲剧了。我觉得，面试的时候回答问题一定要真诚，要针对问题来回答，这样才能给人一种靠谱的感觉。</p>
+<p>最后，用人单位最看重的，其实还是motivation。说实话，大部分公司每天的工作内容，其实技术含量并不是很高。大部分人的能力都是可以驾驭的。那么用什么来区分呢？就是看面试者是否能全身心地投入到工作中去。在面试时，面试者当前的技术水平固然很重要，但是他是否能够持续地学习，是否有潜力进步，是否掌握了学习的方法，才是更重要的。毕竟IT行业技术日新月异，只有不断学习，才能跟得上技术变化的步伐。</p>
+<p>在体会了面试官的角色之后，重新变身为面试者，我感觉到心态更加平和了，也更有方法了。在我面试之前，除了认真准备技术问题，也一直在不断思考自己的职业规划。我现在的能力有什么优势和劣势，我到底想做什么，我想在几年后成长什么样的人。我最后成功找到满意的工作和心态的转变以及这些准备有很大的关系。</p>
+<p>最后，面试很难，但是当好面试官其实更难。比如如何不给面试者压力，如何挖掘面试者的能力，如何在简短的时间里准确地判断一个人是否合适等等。要学的还有很多啊。</p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/14/mentalite-entretien-en-france/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -443,6 +704,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -450,13 +715,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangzhenyi.com/2017/01/07/10-habits-to-avoid-for-programming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhenyi ZHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/gravatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyi's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -464,13 +745,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/01/07/10-habits-to-avoid-for-programming/" itemprop="url">
-                  不能忍受的十个编程习惯
-                </a>
+                
+                <a href="/2017/01/07/10-habits-to-avoid-for-programming/" class="post-title-link" itemprop="url">不能忍受的十个编程习惯</a>
               
             
           </h1>
@@ -478,39 +755,69 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-07T10:14:07+01:00" content="2017-01-07">
-              2017-01-07
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-07 10:14:07 / 修改时间：10:20:42" itemprop="dateCreated datePublished" datetime="2017-01-07T10:14:07+01:00">2017-01-07</time>
+            
+
+            
+              
+
+              
+            
           </span>
 
           
 
           
             
+            
+              
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/2017/01/07/10-habits-to-avoid-for-programming/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/07/10-habits-to-avoid-for-programming/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/07/10-habits-to-avoid-for-programming/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -519,28 +826,49 @@
       
         
           
-          这几天在搞项目的重构，发现了几个不能忍受的编程习惯，总结在这里，也提醒自己不要犯同样的错误。
-1. 函数过长 + 过多的本地变量有时在项目中会看到超过200行的代码，而且在函数开头有大量的变量声明。有的变量在函数里多次被修改，有的在函数末尾才会被用到。在重构一书中写道，坏代码的重要特征就是函数过长，
-          ...
+            <p>这几天在搞项目的重构，发现了几个不能忍受的编程习惯，总结在这里，也提醒自己不要犯同样的错误。</p>
+<h2 id="1-函数过长-过多的本地变量"><a href="#1-函数过长-过多的本地变量" class="headerlink" title="1. 函数过长 + 过多的本地变量"></a>1. 函数过长 + 过多的本地变量</h2><p>有时在项目中会看到超过200行的代码，而且在函数开头有大量的变量声明。有的变量在函数里多次被修改，有的在函数末尾才会被用到。在<strong>重构</strong>一书中写道，坏代码的重要特征就是函数过长，会使逻辑不清，拆分困难，也会不可避免的违背<code>单一职责</code>的原则。</p>
+<p>对于Java项目来说，一般认为理想的函数长度在20行左右。实际情况中，不可避免的会有一些较复杂的逻辑，所以我觉得50行以内的函数都是可以接受的。在写函数时，我主要考虑两个因素：</p>
+<ol>
+<li>代码逻辑是否在同一抽象层面</li>
+<li>是否对单元测试友好</li>
+</ol>
+<p>如果代码深入了一层，那么就单独抽出一个函数来。另外，能写成private的函数，就不要public。能写成static，就不要instance method</p>
+<h2 id="2-过多的if-else嵌套"><a href="#2-过多的if-else嵌套" class="headerlink" title="2. 过多的if else嵌套"></a>2. 过多的if else嵌套</h2><p>这个问题经常和第一条同时出现。如果if else过多，说明class设计的不好。因为在Java里大部分的if else都可以用多态来实现。解决方法如问题1，每一层if else都是逻辑上的加深，所以都应该抽象成新的函数。</p>
+<h2 id="3-没用的代码变成注释"><a href="#3-没用的代码变成注释" class="headerlink" title="3. 没用的代码变成注释"></a>3. 没用的代码变成注释</h2><p>有的人在重构时，旧代码不删除，而是注释掉。实在忍不了。。。又不是没有版本管理，没必要把之前的代码留下。</p>
+<h2 id="4-编程之前不设计，编程之后不重构"><a href="#4-编程之前不设计，编程之后不重构" class="headerlink" title="4. 编程之前不设计，编程之后不重构"></a>4. 编程之前不设计，编程之后不重构</h2><p>一般开始一项新功能前，都要好好设计一番，画一下UML图，把各个类的职责和抽象关系定义好。可有的人拿到任务就开始写代码，这样就好像盖房子没有图纸，想到哪儿盖到哪儿，最终得到的肯定毫无扩展性和可维护性。如果能持续重构还好，但是大多数人都是任务完成就好，根本不管代码是否优雅易读，结构是否清晰。代码应该是活的，因为需求会变，代码也应该持续变化。</p>
+<h2 id="5-编程不符合标准习惯"><a href="#5-编程不符合标准习惯" class="headerlink" title="5. 编程不符合标准习惯"></a>5. 编程不符合标准习惯</h2><p>在编程时，除了实现功能外，符合标准和一般习惯也很重要。大一些的项目都会有coding style，定义了命名，格式等规范。除了这种代码文本上的规范，功能上符合规范也同样重要。尤其是对于接口来说，规范十分重要。拿RestAPI来说吧，参数格式（尤其是时间格式），http方法（GET vs POST），接口设计，错误返回码都有一定的标准。每个公司也都应该定义一个内部标准并严格执行。这样在前后端链接和不同app整合时能节省大量时间。</p>
+<h2 id="6-不写custom-exception"><a href="#6-不写custom-exception" class="headerlink" title="6. 不写custom exception"></a>6. 不写custom exception</h2><p>好多人在处理异常时，不根据使用场景抛出自己的异常，而是直接throws一个 generic的Exception类。问题是Exception类为checked exception，这样导致上级函数不能根据各个不同的错误进行针对性的处理，而是只能也必须也同样的try..catch这个exception。这样引发连锁反应，整个程序链都会被污染。正确的做法应该是定义一个继承于Runtime Exception的子类。这样上级函数可以自行决定是否捕获异常，同时重要的exception也要在函数声明里加入throws，以提醒caller要适当进行处理。</p>
+<h2 id="7-对需求一知半解"><a href="#7-对需求一知半解" class="headerlink" title="7. 对需求一知半解"></a>7. 对需求一知半解</h2><p>拿到一个任务后，有的人会详细阅读需求文档，把脑海中的问题记下来，和产品交流。等所有疑问解决了，才开始程序的设计，最后再编写。还有的人，大概看一眼文档就开始写程序，但其实对需求内部之间的联系没有理解透彻，更不知道这项功能为什么要做，之后是否有扩展的需要，各项边界条件还有非功能性需求是什么。很多时候，MOA想问题是不全面的，只有程序员才能踩到所有的坑和逻辑分支。这个时候，就需要不断反馈，并完善文档。最怕的就是文档写的不全面，程序员也不反馈，而是臆测可能需要的处理，或者自行发明。由于程序员没有相关的业务知识，这种臆测往往不全面，有时甚至会产生严重的漏洞。只有全面理解需求，才能编写出符合预期，并且易于扩展的程序。</p>
+<h2 id="8-重复代码"><a href="#8-重复代码" class="headerlink" title="8. 重复代码"></a>8. 重复代码</h2><p>对于一个已经存在一段时间的项目，一定有很大一部分代码是共用的。在开始开发之前，一定要认真分析已有代码，了解程序结构和逻辑，进行合理的重构和添加。否则，只会使重复代码段在程序各处游走，使抽象变得越来越难。另外，很多时候重复代码的出现是由于对业务知识理解不足。因为如果业务有全面的认识，会很容易联想到另一个功能也许会有同样的逻辑，从而简化程序的分析过程。</p>
+<p>另一个产生重复代码的原因则是纯粹因为懒。有的人不认真思考进行重构和抽象，而是直接复制粘贴已有代码，而只改几个变量参数。这么做当时节省了时间，长远看百害而无一利。</p>
+<h2 id="9-单元测试写成了整合测试"><a href="#9-单元测试写成了整合测试" class="headerlink" title="9. 单元测试写成了整合测试"></a>9. 单元测试写成了整合测试</h2><p>单元测试是针对一个单独的函数来进行的。有时甚至要针对每一个判断分支和边界条件进行测试。然而在实际开发中，很多人把单元测试写成了整合测试。给一个输入，判断最后的输出。这样做虽然测试的覆盖率上去了，但是一旦重构起来，会很复杂。首先这样的测试通常会很长，因为要判断比较的结果有很多。其次，程序牵一发而动全身，一个小的修改便会使结果发生变化，导致必须重新分析测试的逻辑，向前找到应该修改的输入值，向后分析需要得到的结果，非常耽误时间。真正的单元测试，应该短小精悍，一个测试方法只验证一个函数的一个行为。然后一层一层的向上，多用mock。这样的测试才能保证效率，才是可维护的，这样提高的代码覆盖率才是健康的。</p>
+<h2 id="10-不注意性能优化"><a href="#10-不注意性能优化" class="headerlink" title="10. 不注意性能优化"></a>10. 不注意性能优化</h2><p>一个优秀的程序员应该时刻考虑代码的性能，而不是在产生问题时才考虑优化。应该时刻保持警惕，每写一段函数就分析一下时间和空间复杂度，问自己是否有更优化的算法。正确使用数据结构，用高效的库函数而不是自己造轮子。大部分时候编写出高效的代码并不一定要采用多高深的算法，而是从点滴做起，保证每个函数都是最优的，整体性能自然就上去了。</p>
+<p>以上就是我工作两年以来遇到的各种难以忍受的编程习惯。其中很多都是静态工具（如sonar）的分析内容（比如1，2，6，8），很多优秀的IDE（如IntelliJ）也可以给出相关的提示。剩下的一些，则需要从主观意识上做起，不断地提醒自己，逐渐养成好的习惯。</p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/07/10-habits-to-avoid-for-programming/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -550,6 +878,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -557,13 +889,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangzhenyi.com/2016/11/20/npm-version-review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhenyi ZHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/gravatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyi's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -571,13 +919,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/11/20/npm-version-review/" itemprop="url">
-                  NPM Version 管理总结
-                </a>
+                
+                <a href="/2016/11/20/npm-version-review/" class="post-title-link" itemprop="url">NPM Version 管理总结</a>
               
             
           </h1>
@@ -585,39 +929,81 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-20T12:26:52+01:00" content="2016-11-20">
-              2016-11-20
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-20 12:26:52" itemprop="dateCreated datePublished" datetime="2016-11-20T12:26:52+01:00">2016-11-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-11-28 20:18:30" itemprop="dateModified" datetime="2016-11-28T20:18:30+01:00">2016-11-28</time>
+              
+            
           </span>
 
           
 
           
             
+            
+              
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/2016/11/20/npm-version-review/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/20/npm-version-review/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/20/npm-version-review/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -626,34 +1012,79 @@
       
         
           
-          Semantic Version 版本格式：major.minor.fix
-其中:
+            <h2 id="Semantic-Version-版本格式："><a href="#Semantic-Version-版本格式：" class="headerlink" title="Semantic Version 版本格式："></a>Semantic Version 版本格式：</h2><pre><code>major.minor.fix
+</code></pre><p>其中:</p>
+<ul>
+<li>major: 不向下兼容API修改</li>
+<li>minor: 向下兼容的功能性新增</li>
+<li>fix: 向下兼容的问题修正</li>
+</ul>
+<p>当major为0时，可以认为版本不稳定。即使minor的修改，也会引入兼容性问题，这一设计主要是为了开发者可以尽快的进行迭代。但是fix版本依然应该保持向下兼容。</p>
+<p>关于Semantic Version的更多信息，参见： <a href="http://semver.org/" target="_blank" rel="noopener">http://semver.org/</a></p>
+<h2 id="npm-的version管理"><a href="#npm-的version管理" class="headerlink" title="npm 的version管理"></a>npm 的version管理</h2><h3 id="Primitive-Comparators："><a href="#Primitive-Comparators：" class="headerlink" title="Primitive Comparators："></a>Primitive Comparators：</h3><ul>
+<li>&lt;</li>
+<li>&lt;=</li>
+<li>></li>
+<li>>=</li>
+<li>=</li>
+</ul>
+<p>这些很好理解，就不做过多解释了。另外，可以用<code>||</code>表示”或”的关系<code>空格</code>表示”且”的关系，例如：</p>
+<pre><code>1.2.7 || &gt;=1.2.9 &lt;2.0.0
+</code></pre><p>满足的区间为 1.2.7, 1.2.9, and 1.4.6, 但是 1.2.8 or 2.0.0 不满足以上区间</p>
+<h3 id="高级区间运算符"><a href="#高级区间运算符" class="headerlink" title="高级区间运算符"></a>高级区间运算符</h3><h4 id="hyphen-X-Y-Z-A-B-C"><a href="#hyphen-X-Y-Z-A-B-C" class="headerlink" title="hyphen(-): X.Y.Z - A.B.C"></a>hyphen(-): X.Y.Z - A.B.C</h4><p>表示一个区间，包括两头，不足的version用0补足</p>
+<h4 id="X-Range-X-x-1-2-x-1-X-1-2"><a href="#X-Range-X-x-1-2-x-1-X-1-2" class="headerlink" title="X Range(X,x,*): 1.2.x 1.X 1.2. "></a>X Range(X,x,*): 1.2.x 1.X 1.2.<em> </em></h4><p>代表任意版本</p>
+<h4 id="Tilde-Range-1-2-3-1-2-1"><a href="#Tilde-Range-1-2-3-1-2-1" class="headerlink" title="Tilde Range(~): ~1.2.3 ~1.2 ~1"></a>Tilde Range(~): ~1.2.3 ~1.2 ~1</h4><p>  如果有minor version，那么久允许fix level的version。否则，只允许minor level的version。<br>    例如：</p>
+<pre><code>~1.2.3 := &gt;=1.2.3 &lt;1.(2+1).0 := &gt;=1.2.3 &lt;1.3.0
+~1.2 := &gt;=1.2.0 &lt;1.(2+1).0 := &gt;=1.2.0 &lt;1.3.0 (Same as 1.2.x)
+~1 := &gt;=1.0.0 &lt;(1+1).0.0 := &gt;=1.0.0 &lt;2.0.0 (Same as 1.x)
+</code></pre><h4 id="Caret-Ranges-1-2-3-0-2-5-0-0-4"><a href="#Caret-Ranges-1-2-3-0-2-5-0-0-4" class="headerlink" title="Caret Ranges(^): ^1.2.3 ^0.2.5 ^0.0.4"></a>Caret Ranges(^): ^1.2.3 ^0.2.5 ^0.0.4</h4><p>允许[major, minor, patch]从左起第一个不是0的部分之后的部分的范围变动。虽然在semver的spec里，只有major版本的改变会产生兼容性问题。但是在实际上，当主版本号为0时，minor版本经常会引入行为上的变化。例如：</p>
+<pre><code>^1.2.3 := &gt;=1.2.3 &lt;2.0.0
+^0.2.3 := &gt;=0.2.3 &lt;0.3.0
+^0.0.3 := &gt;=0.0.3 &lt;0.0.4
+^1.2.3-beta.2   &gt;=1.2.3-beta.2 &lt;2.0.0
+^0.0.3-beta.2   &gt;=0.0.3-beta.2 &lt;0.0.4
+</code></pre><p>一句话概括tilde和caret的区别：</p>
+<ul>
+<li><p>tilde match most recent minor version (the middle number):</p>
+<p>~1.2.3 := &gt;=1.2.3-0 &lt;1.3.0-0 (“Reasonably close to 1.2.3”)</p>
+</li>
+<li><p>caret updates to the most recent major version:</p>
+<p>^1.2.3 := &gt;=1.2.3-0 &lt;2.0.0-0 (“Compatible with 1.2.3”)</p>
+</li>
+</ul>
+<p>caret其实是认为只要major版本不改变，那么兼容性就可以保证。然而tilde更保守一点，只接受minor或者fix的更新。另外，对于正在开发中的初始版本，tilde和caret的功能是一样的。</p>
+<p>参考资料：</p>
+<ul>
+<li><a href="http://semver.org/lang/zh-CN/" target="_blank" rel="noopener">http://semver.org/lang/zh-CN/</a></li>
+<li><a href="https://docs.npmjs.com/misc/semver" target="_blank" rel="noopener">https://docs.npmjs.com/misc/semver</a></li>
+<li><a href="http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json" target="_blank" rel="noopener">http://stackoverflow.com/questions/22343224/difference-between-tilde-and-caret-in-package-json</a></li>
+<li><a href="http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/" target="_blank" rel="noopener">http://fredkschott.com/post/2014/02/npm-no-longer-defaults-to-tildes/</a></li>
+<li><a href="http://bytearcher.com/articles/semver-explained-why-theres-a-caret-in-my-package-json/" target="_blank" rel="noopener">http://bytearcher.com/articles/semver-explained-why-theres-a-caret-in-my-package-json/</a></li>
+</ul>
 
-major: 不向下兼容API修改
-minor: 向下兼容的功能性新增
-fix: 向下兼容的问题修正
-
-当major为0时，可以认为版本不稳定。即使minor的修改，也会引入兼容性问题，这一设计主要是为了开发者可以
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/20/npm-version-review/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -663,6 +1094,10 @@ fix: 向下兼容的问题修正
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -670,13 +1105,29 @@ fix: 向下兼容的问题修正
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangzhenyi.com/2016/08/15/git-ignore-files/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhenyi ZHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/gravatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhenyi's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -684,13 +1135,9 @@ fix: 向下兼容的问题修正
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/08/15/git-ignore-files/" itemprop="url">
-                  Git 忽略文件总结
-                </a>
+                
+                <a href="/2016/08/15/git-ignore-files/" class="post-title-link" itemprop="url">Git 忽略文件总结</a>
               
             
           </h1>
@@ -698,39 +1145,81 @@ fix: 向下兼容的问题修正
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-15T10:58:32+02:00" content="2016-08-15">
-              2016-08-15
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-08-15 10:58:32" itemprop="dateCreated datePublished" datetime="2016-08-15T10:58:32+02:00">2016-08-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-07 13:08:41" itemprop="dateModified" datetime="2018-01-07T13:08:41+01:00">2018-01-07</time>
+              
+            
           </span>
 
           
 
           
             
+            
+              
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
                 <a href="/2016/08/15/git-ignore-files/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/15/git-ignore-files/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/08/15/git-ignore-files/" itemprop="commentCount"></span>
                 </a>
               </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -739,28 +1228,42 @@ fix: 向下兼容的问题修正
       
         
           
-          在git中，我们有时需要在repo中忽略某些文件，比如配置文件，dependency，编译生成的文件等。在不同的场景下，需要采用不同的方法。
-加入 .gitignore最常用的方法就是把需要ignore的文件名添加到 .gitignore 文件中。.gitignore 文件本身也要放到git的目录中
-          ...
+            <p>在git中，我们有时需要在repo中忽略某些文件，比如配置文件，dependency，编译生成的文件等。在不同的场景下，需要采用不同的方法。</p>
+<h2 id="加入-gitignore"><a href="#加入-gitignore" class="headerlink" title="加入 .gitignore"></a>加入 .gitignore</h2><p>最常用的方法就是把需要ignore的文件名添加到 .gitignore 文件中。.gitignore 文件本身也要放到git的目录中。github提供了<a href="https://github.com/github/gitignore" target="_blank" rel="noopener">各种常见语言和项目的 .gitignore 模板</a> , 建议在项目刚刚创建时，就加入一个完善的 .gitignore。</p>
+<h3 id="添加已经track的文件到-gitignore"><a href="#添加已经track的文件到-gitignore" class="headerlink" title="添加已经track的文件到 .gitignore"></a>添加已经track的文件到 .gitignore</h3><p>有时，一些文件已经被加入到repo里，之后又被加入到 .gitignore 文件里。在运行 <code>git status</code> 时，会发现不起效果。此时，必须要untrack这个文件，才能使修改生效:</p>
+<pre><code>git rm --cached FILE_NAME
+</code></pre><h2 id="加入-git-info-exclude"><a href="#加入-git-info-exclude" class="headerlink" title="加入 .git/info/exclude"></a>加入 .git/info/exclude</h2><p>由于 .gitignore 文件在项目repo里，所有的用户都会看到相同的配置。如果想要在<strong>本地</strong>ignore一些文件，又不想让其他人看到，可以把这些文件加入到 <code>.git/info/exclude</code> 里，语法和 .gitignore 的一样。</p>
+<h2 id="使用-update-index-–skip-worktree"><a href="#使用-update-index-–skip-worktree" class="headerlink" title="使用 update index –skip-worktree"></a>使用 update index –skip-worktree</h2><p>还有一种特殊情况，很多人都不知道如何处理： 一些文件已经加入被track，本地也有修改。然而，又不想让这些修改被别人看到。比如，在java项目中，我们会创建一些launcher，launcher的param经常需要被替换成本地的文件路径，然而我们不想让这些修改加入repo里。此时可以用如下命令：</p>
+<pre><code>git update-index --skip-worktree my_launcher.launch // works for one file
+</code></pre><p>这个命令的一个局限是只能适用于单个文件。如果有很多文件需要修改，则需要先要找到他们，然后再运行命令：</p>
+<pre><code>find ./ -name &quot;*.launch&quot; -exec git update-index --skip-worktree &apos;{}&apos; \; // works for multi files
+</code></pre><p>有一点需要注意的是，当用 <code>git pull</code> 更新项目时，这些文件依然会被update。</p>
+<p>还有另外一个命令 <code>git update index assume-unchanged</code> 也可以达到类似的效果，但是两者的原理不同。<a href="http://stackoverflow.com/questions/13630849/git-difference-between-assume-unchanged-and-skip-worktree" target="_blank" rel="noopener">stackoverflow上的这个问题</a> 给出了详细的解释。</p>
+<p>如果想要undo这项操作，只需要把 <code>--skip-worktree</code> 替换成 <code>--no-skip-worktree</code> 即可。</p>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/15/git-ignore-files/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -770,6 +1273,10 @@ fix: 向下兼容的问题修正
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -780,9 +1287,6 @@ fix: 向下兼容的问题修正
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -804,51 +1308,86 @@ fix: 向下兼容的问题修正
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/gravatar.png" alt="Zhenyi ZHANG">
-          <p class="site-author-name" itemprop="name">Zhenyi ZHANG</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">5</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/gravatar.png" alt="Zhenyi ZHANG">
+            
+              <p class="site-author-name" itemprop="name">Zhenyi ZHANG</p>
+              <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
+
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
+      </div>
 
-        
-        
-
-        
-        
-
-      </section>
+      
 
       
 
     </div>
   </aside>
+  
 
 
         
@@ -857,41 +1396,61 @@ fix: 向下兼容的问题修正
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Zhenyi ZHANG</span>
+
+  
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+
+
+
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -905,79 +1464,102 @@ fix: 向下兼容的问题修正
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
-  
 
 
 
-  
 
-    <script type="text/javascript">
-      var disqus_shortname = 'zhenyisblog';
-      var disqus_identifier = 'index.html';
-      var disqus_title = "";
-      var disqus_url = '';
-
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-    </script>
-  
 
 
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://zhenyisblog.disqus.com/count.js" async></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
